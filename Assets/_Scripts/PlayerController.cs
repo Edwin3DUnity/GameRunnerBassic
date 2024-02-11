@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,22 +8,41 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField, Range(-20, 1000), Tooltip("Fuerza hacia arriba")]
-    private float forceUP = 20;
+
     private Rigidbody playerRB;
-    // Start is called before the first frame update
+
+    [SerializeField, Range(-2, 20), Tooltip(" Fueza de salto")]
+    private float jumpForce = 8;
+
+    [SerializeField, Range(-10, 10), Tooltip("multimplador de gravedad")]
+    private float gravityMultiplier;
+
+    [SerializeField] private bool isOnGround;
+    
+    
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
-      
+        Physics.gravity *= gravityMultiplier;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
-            playerRB.AddForce(Vector3.up * forceUP, ForceMode.Impulse);
+            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isOnGround = false;
+        }   
+        
+        
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
         }
     }
 }
