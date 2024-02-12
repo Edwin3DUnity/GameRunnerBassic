@@ -16,10 +16,12 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField, Tooltip(" Está tocando el suelo")]
     private bool IsOnground;
-    
+
+    [SerializeField, Range(-10, 10)] private float gravityMultiplier;
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
+        Physics.gravity *= gravityMultiplier;
     }
 
     // Update is called once per frame
