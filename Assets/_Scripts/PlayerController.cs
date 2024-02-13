@@ -9,36 +9,27 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField, Range(-2, 50), Tooltip("Fuerza que se le va aplicar al jugador para que salte")]
-    private float jumpForce = 12;
-
-
+    [SerializeField, Range(0,20), Tooltip("fuerza del salto")]  float jumpForce = 12;
     private Rigidbody playerRB;
 
 
-    [SerializeField, Range(-10, 10), Tooltip("Factor multiplicador de gravedad")]
-    private float gravityMultiplier;
-
-    [SerializeField, Tooltip("Confirmar si está en el piso")]
+    [SerializeField, Tooltip("está tocando el piso")]
     private bool isOnGround;
     
-   
     void Start()
     {
-
         playerRB = GetComponent<Rigidbody>();
-        Physics.gravity *= gravityMultiplier;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Jump();  
+      Saltar();
         
     }
 
-    private void Jump()
+    private void Saltar()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
@@ -46,8 +37,6 @@ public class PlayerController : MonoBehaviour
 
             isOnGround = false;
         }
-        
-        
     }
 
     private void OnCollisionEnter(Collision other)

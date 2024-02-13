@@ -4,42 +4,36 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-
     public GameObject[] obstacles;
-    private int indexObstacle;
+    private int indesxObstalces;
 
-    [SerializeField, Tooltip("Posicion donde van a salir los obstaculos")]
-    private Vector3 spawnPos;
+   [SerializeField] private Vector3 posSpawn;
 
-    private float stardelay = 1;
-
-  [SerializeField, Range(0, 5)]  private float waitNextObstacle;
+   private float stardlay = 1;
+   [SerializeField, Range(0, 5)] private float waitRate; 
+   
     // Start is called before the first frame update
     void Start()
     {
-        spawnPos = transform.position;
+        posSpawn = transform.position;
         
-        InvokeRepeating("GenerarObstaculos", stardelay, waitNextObstacle  );
-        //waitNextObstacle = Random.Range(2, 5);
-        
-        
+        InvokeRepeating("GenerarObstaculos", stardlay, waitRate);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(" tiempo de espera es" + waitNextObstacle);
         
     }
 
     private void GenerarObstaculos()
     {
+        indesxObstalces = Random.Range(0, obstacles.Length);
 
-        indexObstacle = Random.Range(0, obstacles.Length);
-
-        Instantiate(obstacles[indexObstacle],spawnPos, obstacles[indexObstacle].transform.rotation);
+        Instantiate(obstacles[indesxObstalces], posSpawn, obstacles[indesxObstalces].transform.rotation);
 
 
     }
+    
     
 }
