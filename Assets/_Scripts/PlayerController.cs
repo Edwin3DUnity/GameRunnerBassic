@@ -9,27 +9,29 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField, Range(0,20), Tooltip("fuerza del salto")]  float jumpForce = 12;
+    [SerializeField, Range(0, 50), Tooltip("Fuerza de salto ")]
+    private float jumpForce = 8;
+
     private Rigidbody playerRB;
 
-
-    [SerializeField, Tooltip("está tocando el piso")]
-    private bool isOnGround;
+    [SerializeField] private bool isOnGround;
     
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-      Saltar();
+        Jump();
         
     }
 
-    private void Saltar()
+
+    private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
@@ -37,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
             isOnGround = false;
         }
+        
+        
     }
 
     private void OnCollisionEnter(Collision other)

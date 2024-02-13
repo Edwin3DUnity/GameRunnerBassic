@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveLeft: MonoBehaviour
+public class MoveLeft : MonoBehaviour
 {
 
-    [SerializeField, Range(-50, 50), Tooltip("velocidad de movimiento")]
-    private float speed = 5;
+    [SerializeField, Range(0, 20), Tooltip(" Velocidad de movimiento hacia la izquierda")]
+    private float speed = 8;
     
     // Start is called before the first frame update
     void Start()
