@@ -33,7 +33,7 @@ public class SpawnManager : MonoBehaviour
 
     private void GenerarObstacles()
     {
-        if (!_playerController.gameOver)
+        if (!_playerController.GameOver)
         {
             indexObstacles = Random.Range(0, obstacles.Length);
 
