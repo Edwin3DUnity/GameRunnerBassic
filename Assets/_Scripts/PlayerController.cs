@@ -18,7 +18,25 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody playerRB;
 
-    public bool gameOver;
+    private bool _gameOver;
+
+    public bool gameOver
+    {
+        get => _gameOver;
+
+        set
+        {
+            if (_gameOver == true)
+            {
+                _gameOver = true;
+            }
+            else
+            {
+                _gameOver = value;
+            }
+            
+        }
+    }
     
     void Start()
     {
@@ -53,7 +71,7 @@ public class PlayerController : MonoBehaviour
             isOnGround = true;
         }else if (other.gameObject.CompareTag("Obstacle"))
         {
-            gameOver = true;
+            _gameOver = true;
             isOnGround = false;
             Debug.Log("Game Over!!");
         }
