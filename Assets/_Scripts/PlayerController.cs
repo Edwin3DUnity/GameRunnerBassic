@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField, Range(-10, 20), Tooltip("Factor multiplicador de gravedad")]
     private float gravitymultiplier;
+
+    public bool gameOver;
     
     
     void Start()
@@ -54,6 +56,12 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+        }else if (other.gameObject.CompareTag("Obstacle"))
+        {
+            gameOver = true;
+            Debug.Log("Game Over !!!");
+            isOnGround = false;
         }
+        
     }
 }

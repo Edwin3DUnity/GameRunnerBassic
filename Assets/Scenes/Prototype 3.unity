@@ -709,5 +709,10 @@ PrefabInstance:
       propertyPath: gravityMultiplier
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4833133544322188982, guid: 3bd8a450fcb589542a7843ea7bda2ee6,
+        type: 3}
+      propertyPath: gravitymultiplier
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bd8a450fcb589542a7843ea7bda2ee6, type: 3}
