@@ -10,39 +10,34 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField, Range(0, 20), Tooltip("fuerza de salto por impulso")]
-    private float jumpForce;
+    [SerializeField, Range(0, 20), Tooltip("Fuerza de salto de impulso")]
+    private float jumpForce= 8;
 
-    [SerializeField, Tooltip("Está tocando el suelo")]
+    [SerializeField, Tooltip("Está en el suelo")]
     private bool isOnGround;
 
     private Rigidbody playerRB;
 
-    [SerializeField, Range(-10, 20), Tooltip("Factor multiplicador de gravedad")]
-    private float gravitymultiplier;
-
     public bool gameOver;
-    
     
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
-
-        Physics.gravity *= gravitymultiplier;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+ 
         Jump();
-        
     }
 
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+      
+        if(Input.GetKeyDown(KeyCode.Space)&& isOnGround)
         {
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
@@ -59,8 +54,8 @@ public class PlayerController : MonoBehaviour
         }else if (other.gameObject.CompareTag("Obstacle"))
         {
             gameOver = true;
-            Debug.Log("Game Over !!!");
             isOnGround = false;
+            Debug.Log("Game Over!!");
         }
         
     }

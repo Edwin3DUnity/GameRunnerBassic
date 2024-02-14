@@ -1,30 +1,26 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RepeatBackground : MonoBehaviour
+public class RepeatBackGround : MonoBehaviour
 {
 
-    private float posWidght;
-    private Vector3 startPos;
-    
+    private Vector3 starPos;
+    private float widhgtBackground;
     
     // Start is called before the first frame update
     void Start()
     {
-        startPos = transform.position;
-        posWidght = GetComponent<BoxCollider>().size.x / 2;
+        starPos = transform.position;
+        widhgtBackground = GetComponent<BoxCollider>().size.x / 2;
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        if (startPos.x - transform.position.x > posWidght)
+        if (starPos.x - transform.position.x > widhgtBackground)
         {
-            transform.position = startPos;
+            transform.position = starPos;
         }
     }
 }
-
-    // Update is called once per frame
-   
