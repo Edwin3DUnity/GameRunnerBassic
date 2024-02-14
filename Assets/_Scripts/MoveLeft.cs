@@ -5,8 +5,8 @@ using UnityEngine;
 public class MoveLeft : MonoBehaviour
 {
 
-    [SerializeField, Range(0, 20), Tooltip(" Velocidad de movimiento hacia la izquierda")]
-    private float speed = 8;
+    [SerializeField, Range(0, 20), Tooltip("Velocidad de movimiento")]
+    private float speed;
     
     // Start is called before the first frame update
     void Start()

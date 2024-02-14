@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -9,17 +10,23 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField, Range(0, 50), Tooltip("Fuerza de salto ")]
-    private float jumpForce = 8;
+    [SerializeField, Range(0, 20), Tooltip("fuerza de salto por impulso")]
+    private float jumpForce;
+
+    [SerializeField, Tooltip("Está tocando el suelo")]
+    private bool isOnGround;
 
     private Rigidbody playerRB;
 
-    [SerializeField] private bool isOnGround;
+    [SerializeField, Range(-10, 20), Tooltip("Factor multiplicador de gravedad")]
+    private float gravitymultiplier;
+    
     
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
 
+        Physics.gravity *= gravitymultiplier;
 
     }
 
@@ -36,10 +43,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
             isOnGround = false;
         }
-        
+
         
     }
 
