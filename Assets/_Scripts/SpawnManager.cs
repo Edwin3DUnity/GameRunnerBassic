@@ -11,6 +11,8 @@ public class SpawnManager : MonoBehaviour
 
     private float starDalay = 1;
 
+    private PlayerController _playerController;
+
     [SerializeField, Range(1, 5), Tooltip("Tiempo de espera del proximo obstáculo ")]
     private float timeRate = 3;
     // Start is called before the first frame update
@@ -19,7 +21,7 @@ public class SpawnManager : MonoBehaviour
         spawnPos = transform.position;
         
         InvokeRepeating("GenerarObstacles", starDalay, timeRate);
-        
+        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -31,10 +33,14 @@ public class SpawnManager : MonoBehaviour
 
     private void GenerarObstacles()
     {
-        indexObstacles = Random.Range(0, obstacles.Length);
+        if (!_playerController.gameOver)
+        {
+            indexObstacles = Random.Range(0, obstacles.Length);
 
 
-        Instantiate(obstacles[indexObstacles], spawnPos, obstacles[indexObstacles].transform.rotation);
+            Instantiate(obstacles[indexObstacles], spawnPos, obstacles[indexObstacles].transform.rotation);
+        }
+       
 
     }
 }

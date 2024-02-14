@@ -7,16 +7,24 @@ public class MoveLeft : MonoBehaviour
 
     [SerializeField, Range(0, 20), Tooltip("Velocidad de movimiento")]
     private float speed;
-    
+
+    private PlayerController _playerController;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        if (!_playerController.gameOver )
+        {
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
+        }
+     
+        
+        
+        
     }
 }
