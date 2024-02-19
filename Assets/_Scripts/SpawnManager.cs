@@ -18,13 +18,7 @@ public class SpawnManager : MonoBehaviour
     private float nextEnemy = 2;
 
 
-    private bool gameOver;
 
-    public bool GameOver
-    {
-        get => gameOver;
-        
-    }
     
     // Start is called before the first frame update
     void Start()
