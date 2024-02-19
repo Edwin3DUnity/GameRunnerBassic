@@ -1,62 +1,44 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField, Range(0, 20), Tooltip("fuerza de salto por impulso")]
-    private float jumpForce;
+    private Rigidbody _rigidbody;
 
-    [SerializeField, Tooltip("Está tocando el suelo")]
-    private bool isOnGround;
+    [SerializeField, Range(1, 30), Tooltip("Fuerza de impulso hacia arriba para saltar")]
+    private float jumpForce = 8;
 
-    private Rigidbody playerRB;
-
-    [SerializeField, Range(-10, 20), Tooltip("Factor multiplicador de gravedad")]
-    private float gravitymultiplier;
-
-   private  bool _gameOver;
-
-    public bool GameOver
-    {
-        get => _gameOver;
-
-       
-    }
+    [SerializeField] private bool isOnGround; 
     
     
-    
-    
+    // Start is called before the first frame update
     void Start()
     {
-        playerRB = GetComponent<Rigidbody>();
-
-        Physics.gravity *= gravitymultiplier;
+        _rigidbody = GetComponent<Rigidbody>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Jump();
-        
+     Jump();   
     }
 
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
-        {
-            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGround = false;
-        }
+        
 
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround )
+        {
+            _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isOnGround = false;
+
+        }
         
     }
 
@@ -65,12 +47,6 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
-        }else if (other.gameObject.CompareTag("Obstacle"))
-        {
-            _gameOver = true;
-            Debug.Log("Game Over !!!");
-            isOnGround = false;
         }
-        
     }
 }

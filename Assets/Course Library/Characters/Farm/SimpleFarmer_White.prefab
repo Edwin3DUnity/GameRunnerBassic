@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 9500000}
   - component: {fileID: 3392169654765835363}
-  - component: {fileID: 4833133544322188982}
   - component: {fileID: 2638984752327070019}
+  - component: {fileID: 2095952872}
   m_Layer: 0
   m_Name: SimpleFarmer_White
   m_TagString: Player
@@ -74,19 +74,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 3.1543553, z: 1.2876686}
   m_Center: {x: 1.282337e-16, y: 1.5593742, z: 0.040273637}
---- !u!114 &4833133544322188982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d500637f665d494ebb982c2f7380a02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 0
 --- !u!54 &2638984752327070019
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -101,8 +88,22 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &2095952872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d500637f665d494ebb982c2f7380a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 8
+  isOnGround: 0
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,26 +5,18 @@ using UnityEngine;
 public class MoveLeft : MonoBehaviour
 {
 
-    [SerializeField, Range(0, 20), Tooltip("Velocidad de movimiento")]
-    private float speed;
-
-    private PlayerController _playerController;
+    [SerializeField, Range(-20, 20), Tooltip("Velocidad de movimiento en X")]
+    private float speed = 8;
+    
     // Start is called before the first frame update
     void Start()
     {
-        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_playerController.GameOver )
-        {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
-        }
-     
-        
-        
-        
+        transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 }
