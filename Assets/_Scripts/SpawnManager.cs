@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField, Range(1, 3), Tooltip(" Tiempo de espera para el siguiente enemigo")]
     private float nextEnemy = 2;
 
-
+    private PlayerController _playerController;
 
     
     // Start is called before the first frame update
@@ -26,6 +26,9 @@ public class SpawnManager : MonoBehaviour
         spawnPos = transform.position;
         
         InvokeRepeating("GenerarEnemigos", startSpawn, nextEnemy);
+
+        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        
     }
 
     // Update is called once per frame
@@ -37,9 +40,13 @@ public class SpawnManager : MonoBehaviour
 
     private void GenerarEnemigos()
     {
-        indexEnemy = Random.Range(0, enemies.Length);
+        if (!_playerController.GameOver)
+        {
+            indexEnemy = Random.Range(0, enemies.Length);
 
-        Instantiate(enemies[indexEnemy], spawnPos, enemies[indexEnemy].transform.rotation);
+            Instantiate(enemies[indexEnemy], spawnPos, enemies[indexEnemy].transform.rotation);
+        }
+
 
     }
 

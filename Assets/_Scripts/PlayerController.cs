@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         
 
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround )
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver )
         {
             _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
