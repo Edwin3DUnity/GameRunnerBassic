@@ -310,6 +310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 727260964}
+  - component: {fileID: 727260965}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -332,6 +333,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &727260965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727260962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bcc74208c436774c8f48e88ff2dacb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1326362126119261767, guid: b28b542a966abcf4592d8f6d0a31c27c, type: 3}
+  - {fileID: 3989420126364688115, guid: 6205b8c063ba5c345a508edd5156b09a, type: 3}
+  - {fileID: 5018361439751097515, guid: f84d9000c60d0c344bae0d3fb6e06139, type: 3}
+  nextEnemy: 2
 --- !u!1 &835818919
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +362,7 @@ GameObject:
   - component: {fileID: 835818920}
   - component: {fileID: 835818924}
   - component: {fileID: 835818925}
+  - component: {fileID: 835818926}
   m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
@@ -444,6 +463,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+--- !u!114 &835818926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835818919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104892d4d033e1e4c873628f9fe7a300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!850595691 &1841666482
 LightingSettings:
   m_ObjectHideFlags: 0
