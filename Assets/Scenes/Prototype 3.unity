@@ -345,11 +345,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcc74208c436774c8f48e88ff2dacb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
+  obstacles:
+  - {fileID: 1326362126119261767, guid: b28b542a966abcf4592d8f6d0a31c27c, type: 3}
   - {fileID: 1326362126119261767, guid: b28b542a966abcf4592d8f6d0a31c27c, type: 3}
   - {fileID: 3989420126364688115, guid: 6205b8c063ba5c345a508edd5156b09a, type: 3}
   - {fileID: 5018361439751097515, guid: f84d9000c60d0c344bae0d3fb6e06139, type: 3}
-  nextEnemy: 2
+  nextObstacleRate: 1.5
 --- !u!1 &835818919
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +460,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 835818919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f57a47ef125802846b4fdb4447849686, type: 3}
+  m_Script: {fileID: 11500000, guid: 6600d0de2dbaace459e926a52d65b3d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
@@ -472,7 +473,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 835818919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104892d4d033e1e4c873628f9fe7a300, type: 3}
+  m_Script: {fileID: 11500000, guid: 4978ed50963df404f84cbdefad815a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!850595691 &1841666482
@@ -689,10 +690,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4833133544322188982, guid: 3bd8a450fcb589542a7843ea7bda2ee6,
+    - target: {fileID: 2274896595111279518, guid: 3bd8a450fcb589542a7843ea7bda2ee6,
         type: 3}
       propertyPath: jumpForce
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274896595111279518, guid: 3bd8a450fcb589542a7843ea7bda2ee6,
+        type: 3}
+      propertyPath: gravityMultiplier
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bd8a450fcb589542a7843ea7bda2ee6, type: 3}
