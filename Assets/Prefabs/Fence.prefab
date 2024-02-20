@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5018361439751331979}
   - component: {fileID: 6467990050550922192}
   - component: {fileID: 2316415902746905626}
-  - component: {fileID: -6908725111889450492}
+  - component: {fileID: -7251971803573249970}
   m_Layer: 0
   m_Name: Fence
   m_TagString: Obstacle
@@ -147,7 +147,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &-6908725111889450492
+--- !u!114 &-7251971803573249970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
