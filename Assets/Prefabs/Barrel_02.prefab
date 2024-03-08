@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1326362126121371289}
   - component: {fileID: 2811792496164479900}
   - component: {fileID: 8638211921307197426}
-  - component: {fileID: -1248329895743196640}
+  - component: {fileID: 8853978817110192892}
   m_Layer: 0
   m_Name: Barrel_02
   m_TagString: Obstacle
@@ -116,7 +116,7 @@ CapsuleCollider:
   m_Height: 2.3011727
   m_Direction: 1
   m_Center: {x: -0.000000059604645, y: 0.6740551, z: 2.4734734e-15}
---- !u!114 &-1248329895743196640
+--- !u!114 &8853978817110192892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

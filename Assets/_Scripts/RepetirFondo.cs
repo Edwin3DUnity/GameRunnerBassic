@@ -5,7 +5,6 @@ using UnityEngine;
 public class RepetirFondo : MonoBehaviour
 {
 
-    [SerializeField, Tooltip("Mitad del fondo del box collider en el eje x")]
     private float mitadFondo;
 
     private Vector3 posInicial;
@@ -17,7 +16,6 @@ public class RepetirFondo : MonoBehaviour
         posInicial = transform.position;
 
         mitadFondo = GetComponent<BoxCollider>().size.x / 2;
-        
 
 
     }
@@ -29,8 +27,6 @@ public class RepetirFondo : MonoBehaviour
         {
             transform.position = posInicial;
         }
-        
-        
         
     }
 }

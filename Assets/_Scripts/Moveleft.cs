@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Moveleft : MonoBehaviour
+public class MoveLeft : MonoBehaviour
 {
 
-    [SerializeField, Range(0, 20), Tooltip("Velocidad de movimiento")]
-    private float speed = 5;
+    [SerializeField, Range(0, 20), Tooltip("Velocidad de movimiento ")]
+    private float speed;
 
     private PlayerController _playerController;
     
@@ -19,12 +19,11 @@ public class Moveleft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_playerController.GameOver)
+        if (!_playerController.GameOver )
         {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);    
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
-        
-        
+       
         
     }
 }
