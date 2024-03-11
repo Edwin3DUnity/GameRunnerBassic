@@ -15,15 +15,17 @@ public class SpawnMangeer : MonoBehaviour
 
     [SerializeField, Range(0, 5), Tooltip("Tiempo para spawnear el siguiente obstaculo")]
     private float ObstaclesrateTime = 1.2f;
-    
+
+
+    private PlayerController _playerController;
     
     // Start is called before the first frame update
     void Start()
     {
         posSpawn = transform.position;
 
-        InvokeRepeating("GenerarObstaculos", startDelay, ObstaclesrateTime);    
-
+        InvokeRepeating("GenerarObstaculos", startDelay, ObstaclesrateTime);
+        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -34,10 +36,15 @@ public class SpawnMangeer : MonoBehaviour
 
     private void GenerarObstaculos()
     {
-        indexObstacles = Random.Range(0, obstacles.Length);
+
+        if (!_playerController.GameOver)
+        {
+            indexObstacles = Random.Range(0, obstacles.Length);
 
 
-        Instantiate(obstacles[indexObstacles], posSpawn, obstacles[indexObstacles].transform.rotation);
+            Instantiate(obstacles[indexObstacles], posSpawn, obstacles[indexObstacles].transform.rotation);
+        }
+        
 
 
     }

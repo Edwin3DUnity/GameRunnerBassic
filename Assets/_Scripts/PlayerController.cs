@@ -22,6 +22,13 @@ public class PlayerController : MonoBehaviour
     private const string SPEED_F = "Speed_f";
     private const string SPEED_MULTIPLIER="SpeedMultiplier";
     private const string JUMP_TRIG = "Jump_trig";
+
+    private bool gameOver;
+
+    public bool GameOver
+    {
+        get => gameOver;
+    }
     
     
     
@@ -44,7 +51,8 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         _animator.SetFloat(SPEED_MULTIPLIER, 1 + Time.deltaTime / 10);
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        
+        if (Input.GetKeyDown(KeyCode.Space) && isGround && !gameOver)
         {
             
             
@@ -62,6 +70,14 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isGround = true;
+        }
+
+        {
+            if (other.gameObject.CompareTag("Obstacle"))
+            {
+                gameOver = true;
+                _animator.SetFloat(SPEED_F, 0);
+            }
         }
     }
 }
