@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d500637f665d494ebb982c2f7380a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 7
+  jumpForce: 6
   isGround: 0
 --- !u!1 &534669902
 GameObject:
@@ -362,14 +362,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 727260962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52371dc7a7001944a18474e5b78ccc6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c26a031b7974ea44848be7a174472bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
   - {fileID: 1326362126119261767, guid: b28b542a966abcf4592d8f6d0a31c27c, type: 3}
   - {fileID: 3989420126364688115, guid: 6205b8c063ba5c345a508edd5156b09a, type: 3}
   - {fileID: 5018361439751097515, guid: f84d9000c60d0c344bae0d3fb6e06139, type: 3}
-  SpwanNextTime: 1.5
+  ObstaclesrateTime: 1.5
 --- !u!1 &835818919
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,10 +479,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 835818919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f57a47ef125802846b4fdb4447849686, type: 3}
+  m_Script: {fileID: 11500000, guid: ba182275f5e77f94ab5fd5ec59b9d9ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 6
 --- !u!114 &835818926
 MonoBehaviour:
   m_ObjectHideFlags: 0

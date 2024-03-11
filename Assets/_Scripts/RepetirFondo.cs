@@ -13,20 +13,20 @@ public class RepetirFondo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        posInicial = transform.position;
-
         mitadFondo = GetComponent<BoxCollider>().size.x / 2;
 
-
+        posInicial = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (posInicial.x - transform.position.x > mitadFondo)
         {
             transform.position = posInicial;
         }
+        
         
     }
 }
