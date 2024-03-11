@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,12 +24,21 @@ public class PlayerController : MonoBehaviour
     private const string SPEED_MULTIPLIER="SpeedMultiplier";
     private const string JUMP_TRIG = "Jump_trig";
 
+    private const string DEATH = "Death_b";
+    private bool isDeath ;
+    
+    private const string DEATH_TYPE = "DeathType_int" ;
+    private int deathTypeInt;
+    
+    
     private bool gameOver;
 
     public bool GameOver
     {
         get => gameOver;
     }
+
+
     
     
     
@@ -39,13 +49,16 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _animator.SetFloat(SPEED_F, 1);
         _animator.SetFloat(SPEED_MULTIPLIER, 0.6f);
-        
+
+
+       
     }
 
     // Update is called once per frame
     void Update()
     {
       Jump();  
+      
     }
 
     private void Jump()
@@ -58,9 +71,11 @@ public class PlayerController : MonoBehaviour
             
             _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             
-            _animator.SetTrigger(JUMP_TRIG);
+           
             
             isGround = false;
+            
+            _animator.SetTrigger(JUMP_TRIG);
         }
     }
 
@@ -77,6 +92,12 @@ public class PlayerController : MonoBehaviour
             {
                 gameOver = true;
                 _animator.SetFloat(SPEED_F, 0);
+                
+                
+                _animator.SetBool(DEATH, isDeath = true );
+                deathTypeInt = Random.Range(1,3);
+                _animator.SetInteger(DEATH_TYPE, deathTypeInt);
+
             }
         }
     }
