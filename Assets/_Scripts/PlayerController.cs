@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        _animator.SetFloat(SPEED_MULTIPLIER, 1 + Time.deltaTime / 10);
+        _animator.SetFloat(SPEED_MULTIPLIER, 1 + Time.time / 10);
         
         if (Input.GetKeyDown(KeyCode.Space) && isGround && !gameOver)
         {
