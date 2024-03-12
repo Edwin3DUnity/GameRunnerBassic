@@ -50,6 +50,10 @@ public class PlayerController : MonoBehaviour
     private AudioSource _audioSource;
 
     [Range(0, 1)] public float audioVolume = 1;
+
+    private float speedMultiplier = 1;
+
+    public float gravityMultiplier ; 
     
     // Start is called before the first frame update
     void Start()
@@ -60,6 +64,8 @@ public class PlayerController : MonoBehaviour
         _animator.SetFloat(SPEED_MULTIPLIER, 0.6f);
 
         _audioSource = GetComponent<AudioSource>();
+
+        Physics.gravity = gravityMultiplier * new Vector3(0, -9.81f, 0);
 
     }
 
@@ -72,7 +78,9 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        _animator.SetFloat(SPEED_MULTIPLIER, 1 + Time.time / 10);
+        speedMultiplier += Time.deltaTime /10;
+        
+        _animator.SetFloat(SPEED_MULTIPLIER, 1 + speedMultiplier / 10);
         
         if (Input.GetKeyDown(KeyCode.Space) && isGround && !gameOver)
         {
@@ -95,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") && !gameOver)
         {
             isGround = true;
             dirt.Play();
@@ -118,6 +126,8 @@ public class PlayerController : MonoBehaviour
                 _audioSource.PlayOneShot(crashSound,audioVolume);
                 
                 Invoke( "RestartGame", 1.8f);
+
+                Physics.gravity = Vector3.down * 10;
             }
         }
     }
@@ -125,6 +135,8 @@ public class PlayerController : MonoBehaviour
 
     void RestartGame()
     {
-        SceneManager.LoadScene("Prototype 3");
+        speedMultiplier = 1;
+        
+        SceneManager.LoadSceneAsync("Prototype 3", LoadSceneMode.Single);
     }
 }
