@@ -118,4 +118,10 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+
+    void RestartGame()
+    {
+        
+    }
 }
