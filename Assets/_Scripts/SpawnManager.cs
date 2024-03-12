@@ -2,51 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnMangeer : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
 
     public GameObject[] obstacles;
     private int indexObstacles;
 
+
     private Vector3 posSpawn;
 
+    private float startDaley = 1;
 
-    private float startDelay = 1;
+    [SerializeField] private float spawnNextTime =2;
 
-    [SerializeField, Range(0, 5), Tooltip("Tiempo para spawnear el siguiente obstaculo")]
-    private float ObstaclesrateTime = 1.2f;
-
-
-    private PlayerController _playerController;
+    private PlayerControlador _playerControlador;
     
     // Start is called before the first frame update
     void Start()
     {
-        posSpawn = transform.position;
 
-        InvokeRepeating("GenerarObstaculos", startDelay, ObstaclesrateTime);
-        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        posSpawn = transform.position;
+        
+        InvokeRepeating("GenerarObstacles", startDaley, spawnNextTime);
+
+        _playerControlador = GameObject.Find("Player").GetComponent<PlayerControlador>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+        
     }
 
-    private void GenerarObstaculos()
-    {
 
-        if (!_playerController.GameOver)
+    private void GenerarObstacles()
+    {
+        if (!_playerControlador.GameOver)
         {
             indexObstacles = Random.Range(0, obstacles.Length);
 
-
             Instantiate(obstacles[indexObstacles], posSpawn, obstacles[indexObstacles].transform.rotation);
+
         }
-        
+       
 
 
     }
-    
 }

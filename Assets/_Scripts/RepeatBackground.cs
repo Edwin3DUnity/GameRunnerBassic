@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RepetirFondo : MonoBehaviour
+public class RepeatBackground : MonoBehaviour
 {
 
     private float mitadFondo;
@@ -16,15 +16,18 @@ public class RepetirFondo : MonoBehaviour
         mitadFondo = GetComponent<BoxCollider>().size.x / 2;
 
         posInicial = transform.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (posInicial.x - transform.position.x > mitadFondo)
         {
+
             transform.position = posInicial;
+
+
         }
         
         

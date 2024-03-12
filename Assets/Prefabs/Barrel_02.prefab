@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 1326362126121371289}
   - component: {fileID: 2811792496164479900}
   - component: {fileID: 8638211921307197426}
-  - component: {fileID: 93066393716390219}
-  - component: {fileID: 1731020635261066420}
+  - component: {fileID: 7665075989911204714}
   m_Layer: 0
   m_Name: Barrel_02
   m_TagString: Obstacle
@@ -117,20 +116,7 @@ CapsuleCollider:
   m_Height: 2.3011727
   m_Direction: 1
   m_Center: {x: -0.000000059604645, y: 0.6740551, z: 2.4734734e-15}
---- !u!114 &93066393716390219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326362126119261767}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba182275f5e77f94ab5fd5ec59b9d9ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
---- !u!114 &1731020635261066420
+--- !u!114 &7665075989911204714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,5 +128,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07c6957b90c96249b4716e78d29b665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 180
-  translateSpeed: 8
