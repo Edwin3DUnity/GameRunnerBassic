@@ -40,7 +40,15 @@ public class PlayerController : MonoBehaviour
 
 
     public ParticleSystem explosion;
-    
+    public ParticleSystem dirt;
+
+
+
+    public AudioClip jumpSound, crashSound;
+
+    private AudioSource _audioSource;
+
+    [Range(0, 1)] public float audioVolume = 1;
     
     // Start is called before the first frame update
     void Start()
@@ -50,7 +58,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetFloat(SPEED_F, 1);
         _animator.SetFloat(SPEED_MULTIPLIER, 0.6f);
 
-      
+        _audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -76,6 +84,10 @@ public class PlayerController : MonoBehaviour
             isGround = false;
             
             _animator.SetTrigger(JUMP_TRIG);
+            dirt.Stop();
+            
+            _audioSource.PlayOneShot(jumpSound, audioVolume);
+            
         }
     }
 
@@ -85,20 +97,24 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isGround = true;
+            dirt.Play();
         }
 
         {
             if (other.gameObject.CompareTag("Obstacle"))
             {
                 gameOver = true;
+                dirt.Stop();
                 _animator.SetFloat(SPEED_F, 0);
                 
                 
                 explosion.Play();
+                
                 _animator.SetBool(DEATH, isDeath = true );
                 deathTypeInt = Random.Range(1,3);
                 _animator.SetInteger(DEATH_TYPE, deathTypeInt);
-
+                
+                _audioSource.PlayOneShot(crashSound,audioVolume);
             }
         }
     }
