@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    
+    public ParticleSystem explosion;
     
     
     // Start is called before the first frame update
@@ -50,8 +50,8 @@ public class PlayerController : MonoBehaviour
         _animator.SetFloat(SPEED_F, 1);
         _animator.SetFloat(SPEED_MULTIPLIER, 0.6f);
 
+      
 
-       
     }
 
     // Update is called once per frame
@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
                 _animator.SetFloat(SPEED_F, 0);
                 
                 
+                explosion.Play();
                 _animator.SetBool(DEATH, isDeath = true );
                 deathTypeInt = Random.Range(1,3);
                 _animator.SetInteger(DEATH_TYPE, deathTypeInt);
