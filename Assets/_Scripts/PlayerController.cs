@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
@@ -115,6 +116,8 @@ public class PlayerController : MonoBehaviour
                 _animator.SetInteger(DEATH_TYPE, deathTypeInt);
                 
                 _audioSource.PlayOneShot(crashSound,audioVolume);
+                
+                Invoke( "RestartGame", 1.8f);
             }
         }
     }
@@ -122,6 +125,6 @@ public class PlayerController : MonoBehaviour
 
     void RestartGame()
     {
-        
+        SceneManager.LoadScene("Prototype 3");
     }
 }
