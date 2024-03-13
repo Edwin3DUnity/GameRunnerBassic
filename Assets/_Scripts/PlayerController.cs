@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
             _audioSource.PlayOneShot(crashSound);
             explosion.Play();
             dirt.Stop();
-            
+            Physics.gravity = UnityEngine.Vector3.down * 10;
             Invoke("RestarGame", 1.8f);
         }
     }
@@ -126,8 +126,7 @@ public class PlayerController : MonoBehaviour
     private void RestarGame()
     {
         SceneManager.LoadSceneAsync("Prototype 3");
-        speedMultiplierFloat = 0.6f;
-        _animator.SetFloat(SPEED_MULTIPLIER,speedMultiplierFloat);
+        
 
     }
     
