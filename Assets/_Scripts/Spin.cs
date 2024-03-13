@@ -4,30 +4,27 @@ using UnityEngine;
 
 public class Spin : MonoBehaviour
 {
-    [SerializeField, Range(0, 20), Tooltip("Velocidad de moviento")]
-    private float speedMove = 6;
+    [SerializeField, Range(0, 20), Tooltip(" Velocidad de movimiento")]
+    public float speedMove = 8.5f;
 
-    [SerializeField, Tooltip("Rotacion del objeto")]
-    private float rotacionGrade = 360;
+    [SerializeField, Tooltip("Grados de rotacion")]
+    private float rotationGrade = 360;
 
-
-    private PlayerController _playerController;
+    private ControladorPlayer _controladorPlayer;
+    
     // Start is called before the first frame update
     void Start()
     {
-        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        _controladorPlayer = GameObject.Find("Player").GetComponent<ControladorPlayer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_playerController.GameOver)
+        if (!_controladorPlayer.GameOver)
         {
-             transform.localPosition += Vector3.left * speedMove * Time.deltaTime;
-             
-             transform.Rotate(Vector3.up * rotacionGrade * Time.deltaTime);
-            
-            
+            transform.localPosition += Vector3.left * speedMove * Time.deltaTime;
+            transform.Rotate(Vector3.up * rotationGrade * Time.deltaTime);
         }
         
         
