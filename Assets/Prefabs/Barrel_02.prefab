@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1326362126121371289}
   - component: {fileID: 2811792496164479900}
   - component: {fileID: 8638211921307197426}
-  - component: {fileID: 424142228781707283}
+  - component: {fileID: 605658650446731768}
   m_Layer: 0
   m_Name: Barrel_02
   m_TagString: Obstacle
@@ -116,7 +116,7 @@ CapsuleCollider:
   m_Height: 2.3011727
   m_Direction: 1
   m_Center: {x: -0.000000059604645, y: 0.6740551, z: 2.4734734e-15}
---- !u!114 &424142228781707283
+--- !u!114 &605658650446731768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,8 +125,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1326362126119261767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f07c6957b90c96249b4716e78d29b665, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a662826a438d494fac80b3216d6d8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 6.5
+  speedMove: 8.5
   rotationGrade: 360
