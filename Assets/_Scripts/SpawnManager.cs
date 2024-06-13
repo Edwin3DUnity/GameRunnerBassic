@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpwanManager : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
-    public GameObject[] obstables;
-    private int indexObstacles;
+    public GameObject[] obstacles;
+    private int indexObstables;
 
     private Vector3 spawnPos;
 
     private float startDelay = 1;
 
-    [SerializeField, Range(0, 5), Tooltip("Tiempo de espera para el siguiente spwaneo")]
+    [SerializeField, Range(0, 5), Tooltip("Tiempo de espera para el siguiente spawneo")]
     private float spawnNextTime = 2;
 
     private PlayerController _playerController;
@@ -20,8 +20,10 @@ public class SpwanManager : MonoBehaviour
     void Start()
     {
         spawnPos = transform.position;
+        
         InvokeRepeating("GenerarObstacles", startDelay, spawnNextTime);
         _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+
     }
 
     // Update is called once per frame
@@ -34,11 +36,10 @@ public class SpwanManager : MonoBehaviour
     {
         if (!_playerController.GameOver)
         {
-            indexObstacles = Random.Range(0, obstables.Length);
-
-            Instantiate(obstables[indexObstacles], spawnPos, obstables[indexObstacles].transform.rotation);
-
+            indexObstables = Random.Range(0, obstacles.Length);
+            Instantiate(obstacles[indexObstables], spawnPos, obstacles[indexObstables].transform.rotation);
         }
+        
     }
     
 }

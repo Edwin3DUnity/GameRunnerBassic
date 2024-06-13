@@ -7,33 +7,16 @@ using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
-
-    [SerializeField, Range(0, 20), Tooltip("Fuerza de salto")]
-    private float jumpForce = 7;
-
-    private Rigidbody _rigidbody;
-
-    private bool isGround;
-
-
-    [SerializeField, Range(-17, 17), Tooltip("Multiplicador de gravedad")]
-    private float gravityMultiplier = 1.5f;
-
-
     private Animator _animator;
-
-    private const string SPEED_F = "Speed_f";
+    private Rigidbody _rigidbody;
+    private const string SPEED_F =  "Speed_f";
+    private const string SPEEDMULTIPLIER =  "SpeedMultiplier";
     private const string JUMP_TRIG = "Jump_trig";
     private const string DEATH_B = "Death_b";
-    private const string DEATH_TYPE = "DeathType_int";
-    private const string SPEED_MULTIPLIER = "SpeedMultiplier";
-
-    private float speedF = 1;
-
-    [SerializeField] private float speedMultiplier = 0.6f;
+    private const string DEATH_TYPE = "DeathTYpe_int";
 
     private bool isDeath;
-    private int deathTYpe;
+    private int deathType;
 
     private bool gameOver;
 
@@ -42,35 +25,50 @@ public class PlayerController : MonoBehaviour
         get => gameOver;
     }
 
+    [SerializeField, Range(0, 30), Tooltip("fuerza de salto")]
+    private float forceJump = 4;
+
+    private float speed_f = 1;
+
+    [SerializeField, Range(0, 20), Tooltip("multiplicador de gravedad")]
+    private float gravityMultiplier = 1.5f;
+
+    [SerializeField] private float speedMultiplier = 0.6f;
+
+    [SerializeField] private bool isGround;
+
+
+    [SerializeField] private ParticleSystem dirt;
+    [SerializeField] private ParticleSystem explotion;
+
     private AudioSource _audioSource;
     public AudioClip jumpSound;
     public AudioClip crashSound;
 
-    [SerializeField, Range(0, 1), Tooltip("Volumen de efectos de sonido")]
+    [SerializeField, Range(0, 1), Tooltip("Volument de efectos de sonidos")]
     private float soundVolume = 0.5f;
-
-    public ParticleSystem explotion;
-    public ParticleSystem dirt;
+    
     
     // Start is called before the first frame update
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-
-       // Physics.gravity = new Vector3(0, -9.81f, 0) * gravityMultiplier;
         _animator = GetComponent<Animator>();
-        _animator.SetFloat(SPEED_F, speedF);
-        _animator.SetFloat(SPEED_MULTIPLIER, speedMultiplier);
-        _audioSource = GetComponent<AudioSource>();
+        _rigidbody = GetComponent<Rigidbody>();
+        Physics.gravity = new Vector3(0, -9.81f, 0) * gravityMultiplier;
         
+        _animator.SetFloat(SPEED_F, speed_f);
+        _animator.SetFloat(SPEEDMULTIPLIER, speedMultiplier );
+
+        _audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         Jump();
-        
     }
+
 
     private void Jump()
     {
@@ -81,18 +79,22 @@ public class PlayerController : MonoBehaviour
             speedMultiplier = 2.2f;
         }
         
-        _animator.SetFloat(SPEED_MULTIPLIER, speedMultiplier);
+        _animator.SetFloat(SPEEDMULTIPLIER, speedMultiplier);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGround && !gameOver )
+        if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
-            _rigidbody.AddForce(Vector3.up * jumpForce , ForceMode.Impulse);
-
+            _rigidbody.AddForce(Vector3.up * forceJump , ForceMode.Impulse);
             isGround = false;
+            
             _animator.SetTrigger(JUMP_TRIG);
             
             _audioSource.PlayOneShot(jumpSound, soundVolume);
             dirt.Stop();
         }
+        
+        
+        
+        
     }
 
 
@@ -106,21 +108,20 @@ public class PlayerController : MonoBehaviour
         {
             gameOver = true;
 
-
-            deathTYpe = Random.Range(1, 3);
+            deathType = Random.Range(1, 3);
             _animator.SetBool(DEATH_B, isDeath = true);
-            _animator.SetInteger(DEATH_TYPE, deathTYpe);
+            _animator.SetInteger(DEATH_TYPE, deathType);
             
             _audioSource.PlayOneShot(crashSound, soundVolume);
             Physics.gravity = Vector3.down * 10;
             dirt.Stop();
             explotion.Play();
-            Invoke("RestarGame", 1.0f);
+            Invoke("RestartGame", 1.0f);
+
         }
     }
 
-
-    private void RestarGame()
+    private void RestartGame()
     {
         SceneManager.LoadSceneAsync("Prototype 3");
     }

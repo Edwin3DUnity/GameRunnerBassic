@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spin : MonoBehaviour
+public class MoveLeft : MonoBehaviour
 {
 
     [SerializeField, Range(0, 20), Tooltip("Velocidad de movimiento")]
-    public float speedMove = 0.5f;
-
-    [SerializeField, Tooltip("grados de rotacion")]
-    private float rotationGrade = 360;
+    private float speedMove = 3;
 
     private PlayerController _playerController;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +20,10 @@ public class Spin : MonoBehaviour
     void Update()
     {
         if (!_playerController.GameOver)
-        {
-            transform.localPosition += Vector3.left * speedMove * Time.deltaTime;
-            transform.Rotate(Vector3.up * rotationGrade * Time.deltaTime);
+        { 
+            transform.Translate(Vector3.left * speedMove * Time.deltaTime);  
+            
         }
+         
     }
 }
