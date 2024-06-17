@@ -1,29 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class SpawnManager : MonoBehaviour
+public class spawnManager : MonoBehaviour
 {
     public GameObject[] obstacles;
-    private int indexObstables;
+    private int indexObstacles;
+
+
+    [SerializeField, Range(0, 5), Tooltip("Tiempo de espera inicial del primer obstaculo")]
+    private float timefirtsObstacle = 1;
+
+    [SerializeField, Range(0, 5), Tooltip("tiempo espera siguiente obstaculo ")]
+    private float timeNextObstacle = 2;
+
 
     private Vector3 spawnPos;
 
-    private float startDelay = 1;
-
-    [SerializeField, Range(0, 5), Tooltip("Tiempo de espera para el siguiente spawneo")]
-    private float spawnNextTime = 2;
-
-    private PlayerController _playerController;
+    private PlayerCOntrooller _playerCOntrooller;
     
     // Start is called before the first frame update
     void Start()
     {
         spawnPos = transform.position;
-        
-        InvokeRepeating("GenerarObstacles", startDelay, spawnNextTime);
-        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-
+        InvokeRepeating("GenerarObstacles", timefirtsObstacle, timeNextObstacle);
+        _playerCOntrooller = GameObject.Find("Player").GetComponent<PlayerCOntrooller>();
     }
 
     // Update is called once per frame
@@ -32,14 +35,16 @@ public class SpawnManager : MonoBehaviour
         
     }
 
+
     private void GenerarObstacles()
     {
-        if (!_playerController.GameOver)
+        if (!_playerCOntrooller.GameOver)
         {
-            indexObstables = Random.Range(0, obstacles.Length);
-            Instantiate(obstacles[indexObstables], spawnPos, obstacles[indexObstables].transform.rotation);
+            indexObstacles = Random.Range(0, obstacles.Length);
+
+            Instantiate(obstacles[indexObstacles], spawnPos, obstacles[indexObstacles].transform.rotation);
+
         }
-        
+      
     }
-    
 }

@@ -235,7 +235,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3975107271393801863}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &341697915
+--- !u!114 &341697910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,19 +244,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 341697901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91562d5c35d7ec241a50404115d9e7bc, type: 3}
+  m_Script: {fileID: 11500000, guid: d3cdffd7545b17148b7118dc8bfcfecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceJump: 9.3
-  gravityMultiplier: 1.5
+  speed_F: 1
   speedMultiplier: 0.6
-  isGround: 0
+  forceJump: 9.48
+  gravityMultiplier: 1.5
   dirt: {fileID: 93077197}
   explotion: {fileID: 1331435622}
   jumpSound: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}
-  crashSound: {fileID: 8300000, guid: 4bcde6de2166e41e284ec46d8a01fb90, type: 3}
+  crashSound: {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
   soundVolume: 0.5
---- !u!82 &341697916
+--- !u!82 &341697911
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,8 +362,8 @@ GameObject:
   m_Component:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
-  - component: {fileID: 534669903}
   - component: {fileID: 534669906}
+  - component: {fileID: 534669907}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -371,14 +371,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &534669903
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
 --- !u!20 &534669904
 Camera:
   m_ObjectHideFlags: 0
@@ -447,9 +439,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d70999ba737574c808b1d37cbdca0c37, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 606910ec401804eb09925f0d57909c04, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.487
+  m_Volume: 0.524
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -533,6 +525,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &534669907
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
 --- !u!1 &727260962
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,11 +578,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - {fileID: 1326362126119261767, guid: 1fb1feb06427d44408e745e7cd051318, type: 3}
-  - {fileID: 1326362126119261767, guid: b28b542a966abcf4592d8f6d0a31c27c, type: 3}
   - {fileID: 3989420126364688115, guid: 6205b8c063ba5c345a508edd5156b09a, type: 3}
   - {fileID: 5018361439751097515, guid: f84d9000c60d0c344bae0d3fb6e06139, type: 3}
-  spawnNextTime: 2
+  - {fileID: 1326362126119261767, guid: 1fb1feb06427d44408e745e7cd051318, type: 3}
+  - {fileID: 1326362126119261767, guid: b28b542a966abcf4592d8f6d0a31c27c, type: 3}
+  timefirtsObstacle: 1
+  timeNextObstacle: 2
 --- !u!1001 &761755936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -841,10 +842,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 835818919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b5370a61938464fabd52d0f2ee2103, type: 3}
+  m_Script: {fileID: 11500000, guid: 224f99eb8be3836429c9a153e68f1061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 8.3
+  speedMove: 8
 --- !u!114 &835818926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -854,10 +855,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 835818919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 522942c61b3cc7a41ba8132e9d45501e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d42b45e45d003e4c9bacd1045111dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mitadFondo: 0
 --- !u!1001 &882571269
 PrefabInstance:
   m_ObjectHideFlags: 0
