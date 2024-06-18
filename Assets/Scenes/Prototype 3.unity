@@ -244,18 +244,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 341697901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3cdffd7545b17148b7118dc8bfcfecc, type: 3}
+  m_Script: {fileID: 11500000, guid: c00321ff8496548479eee62225b76099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed_F: 1
-  speedMultiplier: 0.6
-  forceJump: 9.48
-  gravityMultiplier: 1.5
+  forceJump: 8
   dirt: {fileID: 93077197}
-  explotion: {fileID: 1331435622}
+  explosion: {fileID: 1331435622}
   jumpSound: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}
-  crashSound: {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
-  soundVolume: 0.5
+  crashSound: {fileID: 8300000, guid: e7ee25a47d63b46cdaf65480d62b405c, type: 3}
+  volumenSonido: 0.6
 --- !u!82 &341697911
 AudioSource:
   m_ObjectHideFlags: 0
@@ -574,7 +571,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 727260962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a71ff7b40f0e094a855d2ae487b2417, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c4929822c2f63245abfb58ea1343e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
@@ -582,8 +579,8 @@ MonoBehaviour:
   - {fileID: 5018361439751097515, guid: f84d9000c60d0c344bae0d3fb6e06139, type: 3}
   - {fileID: 1326362126119261767, guid: 1fb1feb06427d44408e745e7cd051318, type: 3}
   - {fileID: 1326362126119261767, guid: b28b542a966abcf4592d8f6d0a31c27c, type: 3}
-  timefirtsObstacle: 1
-  timeNextObstacle: 2
+  timeFirtsObstacle: 1
+  nextObstacleTime: 2
 --- !u!1001 &761755936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -842,10 +839,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 835818919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 224f99eb8be3836429c9a153e68f1061, type: 3}
+  m_Script: {fileID: 11500000, guid: e850ae0c555f88c40a091779c2db8644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 8
+  speedMov3: 8
 --- !u!114 &835818926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,7 +852,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 835818919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d42b45e45d003e4c9bacd1045111dbf, type: 3}
+  m_Script: {fileID: 11500000, guid: fa93addb7e120db45b86956f96837d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &882571269

@@ -2,31 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RepeaatBackgrount : MonoBehaviour
+public class RepeatBackGround2 : MonoBehaviour
 {
-
-    private Vector3 posinicial;
+    private Vector3 posInicial;
 
     private float mitadFondo;
-
-    private PlayerCOntrooller _playerCOntrooller;
+    
+    
     
     // Start is called before the first frame update
     void Start()
     {
-        posinicial = transform.position;
-
+        posInicial = transform.position;
         mitadFondo = GetComponent<BoxCollider>().size.x / 2;
-
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(posinicial.x - transform.position.x >= mitadFondo)
+
+        if (posInicial.x - transform.position.x >= mitadFondo)
         {
-            transform.position = posinicial;
+            transform.position = posInicial;
         }
+        
     }
 }
